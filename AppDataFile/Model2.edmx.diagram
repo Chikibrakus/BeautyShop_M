@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e43ed07cfaf24fc38e67f1e4aae5d9de" Name="Diagram1">
+        <EntityTypeShape EntityType="Салон_красотыModel.AttachedProduct" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.Client" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.ClientService" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.DocumentByService" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.Gender" Width="1.5" PointX="1.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.Manufacturer" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.ProductSale" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.Service" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.ServicePhoto" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Салон_красотыModel.Tag" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="Салон_красотыModel.FK_AttachedProduct_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_ClientService_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_ClientService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_DocumentByService_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_ProductSale_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_ProductPhoto_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_ProductSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.FK_ServicePhoto_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="Салон_красотыModel.TagOfClient" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
