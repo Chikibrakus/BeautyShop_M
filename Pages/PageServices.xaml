@@ -55,14 +55,14 @@
                                         <TextBlock Text=" рублей"
                                                    Style="{StaticResource prdctTxtb}"/>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal"
+                                    <!--<StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Left">
                                         <Button Name="BtnEdit"
                                                 Style="{StaticResource mainBtn}"
                                                 Click="BtnEdit_Click"
                                                 Content="Редактировать">
                                         </Button>
-                                    </StackPanel>
+                                    </StackPanel>-->
                                 </StackPanel>
                             </ListBoxItem>
                         </DataTemplate>
