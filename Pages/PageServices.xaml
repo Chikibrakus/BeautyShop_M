@@ -9,6 +9,66 @@
       Title="PageServices">
 
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBox Name="TxtSearchService"
+                           Width="700"
+                           Height="25"
+                           Margin="5"
+                           />
+                <ListBox Name="ListService"
+                         Background="Transparent"
+                         Width="650"
+                         BorderBrush="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem BorderBrush="Black"
+                                         Style="{StaticResource LblRed}"
+                                         Background="White"
+                                         Width="600">
+                                <ListBoxItem.Resources>
+                                    <Style TargetType="ListBoxItem"
+                                           x:Key="LblRed">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Service.IsActive}"
+                                                         Value="0">
+                                                <Setter Property="Background" Value="Pink"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ListBoxItem.Resources>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock
+                                        Name="StringImage"
+                                        Visibility="Hidden"
+                                        Text="{Binding MainImagePath, StringFormat=..//{0}}">
+                                    </TextBlock>
+                                    <Image Source="{Binding Text, ElementName=StringImage}"
+                                           Style="{StaticResource ImgSource}"/>
+                                    <TextBlock Text="{Binding Title}"
+                                               Name="TxtNameService"
+                                               Style="{StaticResource prdctTxtb}">
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Cost}"
+                                                   Style="{StaticResource prdctTxtb}"/>
+                                        <TextBlock Text=" рублей"
+                                                   Style="{StaticResource prdctTxtb}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Left">
+                                        <Button Name="BtnEdit"
+                                                Style="{StaticResource mainBtn}"
+                                                Click="BtnEdit_Click"
+                                                Content="Редактировать">
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

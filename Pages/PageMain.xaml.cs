@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeautyShop_M.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,16 @@ namespace BeautyShop_M.AppDataFile.Pages
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             FrameObj.framemain.Navigate(new PageAddProduct());
+        }
+
+        private void btnService_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("TET");
+        }
+
+        private void btnServices_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("TEST");
         }
     }
 }

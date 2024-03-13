@@ -13,9 +13,9 @@
                     VerticalAlignment="Center"
                     Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
-                <Button Name="btnService" Content="Услуги" Style="{StaticResource mainBtn}"/>
                 <Button Name="btnCkient" Content="Клиенты" Style="{StaticResource mainBtn}"/>
                 <Button x:Name="btnProduct" Content="Товары" Style="{StaticResource mainBtn}" Click="btnProduct_Click"/>
+                <Button x:Name="btnServices" Content="Услуги" Style="{StaticResource mainBtn}" Click="btnServices_Click" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <Button Name="btnAddProduct" Click="btnAddProduct_Click" Content="Добавить товар" Style="{StaticResource mainBtn}"/>
