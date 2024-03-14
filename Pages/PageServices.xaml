@@ -47,7 +47,6 @@
                                         <Image Source="{Binding Text, ElementName=StringImage}"
                                            Style="{StaticResource ImgSource}"/>
                                         <TextBlock
-                                            TextAlignment="Center"
                                                Text="{Binding Title}"
                                                Name="TxtNameService"
                                                Style="{StaticResource prdctTxtb}">

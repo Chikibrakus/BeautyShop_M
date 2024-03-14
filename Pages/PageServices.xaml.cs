@@ -34,7 +34,7 @@ namespace BeautyShop_M.Pages
 
         public void UpdateData(object sender, object e)
         {
-            var HistoryServices= Connectdb.conObj.Product.ToList();
+            var HistoryServices = Connectdb.conObj.Service.ToList();
             ListService.ItemsSource = HistoryServices;
             ListService.ItemsSource = Connectdb.conObj.Service.Where(x => x.Title.StartsWith(TxtSearchService.Text) || x.Description.StartsWith(TxtSearchService.Text)).ToList();
         }
