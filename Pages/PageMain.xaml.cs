@@ -38,7 +38,8 @@ namespace BeautyShop_M.AppDataFile.Pages
 
         private void btnServices_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("TEST");
+            //MessageBox.Show("TEST");
+            FrameObj.framemain.Navigate(new PageServices());
         }
     }
 }
