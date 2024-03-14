@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
@@ -32,7 +32,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ClientID" Type="int" />
           <Property Name="ServiceID" Type="int" />
           <Property Name="StartTime" Type="nchar" MaxLength="10" />
@@ -85,7 +85,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SaleDate" Type="datetime" />
           <Property Name="ProductID" Type="int" />
           <Property Name="Quantity" Type="nchar" MaxLength="10" />
@@ -95,13 +95,13 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nchar" MaxLength="10" />
-          <Property Name="Cost" Type="nchar" MaxLength="10" />
-          <Property Name="DurationInSeconds" Type="nchar" MaxLength="10" />
-          <Property Name="Description" Type="nchar" MaxLength="10" />
-          <Property Name="Discount" Type="nchar" MaxLength="10" />
-          <Property Name="MainImagePath" Type="nchar" MaxLength="10" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="DurationInSeconds" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="MainImagePath" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="ServicePhoto">
           <Key>
@@ -173,18 +173,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClientService_DocumentByService">
-          <End Role="DocumentByService" Type="Self.DocumentByService" Multiplicity="0..1" />
-          <End Role="ClientService" Type="Self.ClientService" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DocumentByService">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ClientService">
-              <PropertyRef Name="ClientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ClientService_Service">
           <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
           <End Role="ClientService" Type="Self.ClientService" Multiplicity="*" />
@@ -197,27 +185,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProdectSale_ClientService">
+        <Association Name="FK_DocumentByService_ClientService">
           <End Role="ClientService" Type="Self.ClientService" Multiplicity="0..1" />
-          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <End Role="DocumentByService" Type="Self.DocumentByService" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ClientService">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="ProductSale">
+            <Dependent Role="DocumentByService">
               <PropertyRef Name="ClientServiceID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProdectSale_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ProductSale">
-              <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -241,6 +217,30 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ProductPhoto">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_ClientService">
+          <End Role="ClientService" Type="Self.ClientService" Multiplicity="0..1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientService">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
+              <PropertyRef Name="ClientServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
               <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
@@ -308,21 +308,13 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="ClientService" EntitySet="ClientService" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClientService_DocumentByService" Association="Self.FK_ClientService_DocumentByService">
-            <End Role="DocumentByService" EntitySet="DocumentByService" />
-            <End Role="ClientService" EntitySet="ClientService" />
-          </AssociationSet>
           <AssociationSet Name="FK_ClientService_Service" Association="Self.FK_ClientService_Service">
             <End Role="Service" EntitySet="Service" />
             <End Role="ClientService" EntitySet="ClientService" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProdectSale_ClientService" Association="Self.FK_ProdectSale_ClientService">
+          <AssociationSet Name="FK_DocumentByService_ClientService" Association="Self.FK_DocumentByService_ClientService">
             <End Role="ClientService" EntitySet="ClientService" />
-            <End Role="ProductSale" EntitySet="ProductSale" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProdectSale_Product" Association="Self.FK_ProdectSale_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductSale" EntitySet="ProductSale" />
+            <End Role="DocumentByService" EntitySet="DocumentByService" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
@@ -331,6 +323,14 @@
           <AssociationSet Name="FK_ProductPhoto_Product" Association="Self.FK_ProductPhoto_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductPhoto" EntitySet="ProductPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_ClientService" Association="Self.FK_ProductSale_ClientService">
+            <End Role="ClientService" EntitySet="ClientService" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
           <AssociationSet Name="FK_ServicePhoto_Service" Association="Self.FK_ServicePhoto_Service">
             <End Role="Service" EntitySet="Service" />
@@ -363,7 +363,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -381,15 +381,15 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ClientID" Type="Int32" />
           <Property Name="ServiceID" Type="Int32" />
           <Property Name="StartTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Client" Relationship="Self.FK_ClientService_Client" FromRole="ClientService" ToRole="Client" />
-          <NavigationProperty Name="DocumentByService" Relationship="Self.FK_ClientService_DocumentByService" FromRole="ClientService" ToRole="DocumentByService" />
           <NavigationProperty Name="Service" Relationship="Self.FK_ClientService_Service" FromRole="ClientService" ToRole="Service" />
-          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProdectSale_ClientService" FromRole="ClientService" ToRole="ProductSale" />
+          <NavigationProperty Name="DocumentByService" Relationship="Self.FK_DocumentByService_ClientService" FromRole="ClientService" ToRole="DocumentByService" />
+          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_ClientService" FromRole="ClientService" ToRole="ProductSale" />
         </EntityType>
         <EntityType Name="DocumentByService">
           <Key>
@@ -398,7 +398,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="ClientServiceID" Type="Int32" />
           <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ClientService" Relationship="Self.FK_ClientService_DocumentByService" FromRole="DocumentByService" ToRole="ClientService" />
+          <NavigationProperty Name="ClientService" Relationship="Self.FK_DocumentByService_ClientService" FromRole="DocumentByService" ToRole="ClientService" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -430,8 +430,8 @@
           <Property Name="ManufacturerID" Type="Int32" />
           <NavigationProperty Name="AttachedProduct" Relationship="Self.FK_AttachedProduct_Product1" FromRole="Product" ToRole="AttachedProduct" />
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
-          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProdectSale_Product" FromRole="Product" ToRole="ProductSale" />
           <NavigationProperty Name="ProductPhoto" Relationship="Self.FK_ProductPhoto_Product" FromRole="Product" ToRole="ProductPhoto" />
+          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Product" FromRole="Product" ToRole="ProductSale" />
         </EntityType>
         <EntityType Name="ProductPhoto">
           <Key>
@@ -446,25 +446,25 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SaleDate" Type="DateTime" Precision="3" />
           <Property Name="ProductID" Type="Int32" />
           <Property Name="Quantity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ClientServiceID" Type="Int32" />
-          <NavigationProperty Name="ClientService" Relationship="Self.FK_ProdectSale_ClientService" FromRole="ProductSale" ToRole="ClientService" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_ProdectSale_Product" FromRole="ProductSale" ToRole="Product" />
+          <NavigationProperty Name="ClientService" Relationship="Self.FK_ProductSale_ClientService" FromRole="ProductSale" ToRole="ClientService" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Cost" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DurationInSeconds" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Discount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MainImagePath" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DurationInSeconds" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="MainImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ClientService" Relationship="Self.FK_ClientService_Service" FromRole="Service" ToRole="ClientService" />
           <NavigationProperty Name="ServicePhoto" Relationship="Self.FK_ServicePhoto_Service" FromRole="Service" ToRole="ServicePhoto" />
         </EntityType>
@@ -532,18 +532,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClientService_DocumentByService">
-          <End Role="DocumentByService" Type="Self.DocumentByService" Multiplicity="0..1" />
-          <End Role="ClientService" Type="Self.ClientService" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DocumentByService">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ClientService">
-              <PropertyRef Name="ClientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ClientService_Service">
           <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
           <End Role="ClientService" Type="Self.ClientService" Multiplicity="*" />
@@ -556,7 +544,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProdectSale_ClientService">
+        <Association Name="FK_DocumentByService_ClientService">
+          <End Role="ClientService" Type="Self.ClientService" Multiplicity="0..1" />
+          <End Role="DocumentByService" Type="Self.DocumentByService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientService">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DocumentByService">
+              <PropertyRef Name="ClientServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_ClientService">
           <End Role="ClientService" Type="Self.ClientService" Multiplicity="0..1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -580,18 +580,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProdectSale_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ProductSale">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ProductPhoto_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
           <End Role="ProductPhoto" Type="Self.ProductPhoto" Multiplicity="*" />
@@ -600,6 +588,18 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ProductPhoto">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
               <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
@@ -620,7 +620,7 @@
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="BeutyShop_MEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BeutyShop_MEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AttachedProduct" EntityType="Self.AttachedProduct" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="ClientService" EntityType="Self.ClientService" />
@@ -646,15 +646,15 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="ClientService" EntitySet="ClientService" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClientService_DocumentByService" Association="Self.FK_ClientService_DocumentByService">
-            <End Role="DocumentByService" EntitySet="DocumentByService" />
-            <End Role="ClientService" EntitySet="ClientService" />
-          </AssociationSet>
           <AssociationSet Name="FK_ClientService_Service" Association="Self.FK_ClientService_Service">
             <End Role="Service" EntitySet="Service" />
             <End Role="ClientService" EntitySet="ClientService" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProdectSale_ClientService" Association="Self.FK_ProdectSale_ClientService">
+          <AssociationSet Name="FK_DocumentByService_ClientService" Association="Self.FK_DocumentByService_ClientService">
+            <End Role="ClientService" EntitySet="ClientService" />
+            <End Role="DocumentByService" EntitySet="DocumentByService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_ClientService" Association="Self.FK_ProductSale_ClientService">
             <End Role="ClientService" EntitySet="ClientService" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
@@ -662,13 +662,13 @@
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProdectSale_Product" Association="Self.FK_ProdectSale_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductSale" EntitySet="ProductSale" />
-          </AssociationSet>
           <AssociationSet Name="FK_ProductPhoto_Product" Association="Self.FK_ProductPhoto_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductPhoto" EntitySet="ProductPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
           <AssociationSet Name="FK_ServicePhoto_Service" Association="Self.FK_ServicePhoto_Service">
             <End Role="Service" EntitySet="Service" />
@@ -684,7 +684,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BeutyShop_MModelContainer" CdmEntityContainer="BeutyShop_MEntities3">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BeutyShop_MModelContainer" CdmEntityContainer="BeutyShop_MEntities4">
           <EntitySetMapping Name="AttachedProduct">
             <EntityTypeMapping TypeName="BeutyShop_MModel.AttachedProduct">
               <MappingFragment StoreEntitySet="AttachedProduct">

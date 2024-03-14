@@ -25,7 +25,7 @@ namespace BeautyShop_M
         public MainWindow()
         {
             InitializeComponent();
-            Connectdb.conObj = new BeutyShop_MEntities3();
+            Connectdb.conObj = new BeutyShop_MEntities4();
             FrameObj.framemain = FrmMain;
 
             FrmMain.Navigate(new PageMain());

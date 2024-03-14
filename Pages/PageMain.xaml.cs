@@ -36,11 +36,6 @@ namespace BeautyShop_M.AppDataFile.Pages
             FrameObj.framemain.Navigate(new PageAddProduct());
         }
 
-        private void btnService_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("TET");
-        }
-
         private void btnServices_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("TEST");
