@@ -45,11 +45,11 @@
         
         <Style TargetType="TextBlock" x:Key="prdctTxtb">
             <Setter Property="FontFamily" Value="Tahoma"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
         <Style TargetType="Image" x:Key="ImgSource">
             <Setter Property="Width" Value="100"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
         
         <Style TargetType="RadioButton" x:Key="dfltRb">
@@ -61,9 +61,13 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="ListBoxItem" x:Key="LblRed">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Product.IsAcive}" Value="False">
                     <Setter Property="Background" Value="Red"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>

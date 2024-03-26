@@ -31,8 +31,7 @@
                                         <Style TargetType="ListBoxItem"
                                            x:Key="LblRed">
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Service.IsActive}"
-                                                         Value="0">
+                                                <DataTrigger Binding="{Binding Service.IsActive}" Value="0">
                                                     <Setter Property="Background" Value="Pink"></Setter>
                                                 </DataTrigger>
                                             </Style.Triggers>
@@ -45,15 +44,18 @@
                                         Text="{Binding MainImagePath, StringFormat=..//{0}}">
                                         </TextBlock>
                                         <Image Source="{Binding Text, ElementName=StringImage}"
-                                           Style="{StaticResource ImgSource}"/>
+                                           Style="{StaticResource ImgSource}"
+                                           Margin="250,5,0,5"/>
                                         <TextBlock
                                                Text="{Binding Title}"
                                                Name="TxtNameService"
-                                               Style="{StaticResource prdctTxtb}">
+                                               Style="{StaticResource prdctTxtb}"
+                                               Padding="200,0,0,0">
                                         </TextBlock>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Cost}"
-                                                   Style="{StaticResource prdctTxtb}"/>
+                                                   Style="{StaticResource prdctTxtb}"
+                                                       Padding="200,0,0,0"/>
                                             <TextBlock Text=" рублей"
                                                    Style="{StaticResource prdctTxtb}"/>
                                         </StackPanel>
