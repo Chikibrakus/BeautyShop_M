@@ -1,0 +1,70 @@
+﻿<Page x:Class="BeautyShop_M.Pages.PageEditService"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BeautyShop_M.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageEditService">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите название:"
+                    Style="{StaticResource mainTxtb}" Width="265"/>
+                <TextBox x:Name="TxtTitle"
+                    Style="{StaticResource mainTxt}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Цена:"
+                    Style="{StaticResource mainTxtb}"
+                    Width="265"/>
+                <TextBox x:Name="TxtCost"
+                    Style="{StaticResource mainTxt}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Время выполнения (в секундах):"
+                    Style="{StaticResource mainTxtb}" Width="265"/>
+                <TextBox x:Name="TxtDurationInSec"
+                    Style="{StaticResource mainTxt}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Описание:"
+                    Style="{StaticResource mainTxtb}"
+                    Width="265"/>
+                <TextBox x:Name="TxtDescription"
+                    Style="{StaticResource mainTxt}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Фотография услуги:"
+                    Style="{StaticResource mainTxtb}"
+                    Width="265"/>
+                <TextBox x:Name="TxtImage"
+                    Style="{StaticResource mainTxt}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Скидка:"
+                    Style="{StaticResource mainTxtb}"
+                    Width="265"/>
+                <TextBox x:Name="TxtDiscount"
+                    Style="{StaticResource mainTxt}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton x:Name="RbActive"
+                    Content="Доступен"
+                    Style="{StaticResource dfltRb}"/>
+                <RadioButton x:Name="RbNotActive"
+                    Content="Не доступен"
+                    Style="{StaticResource dfltRb}"/>
+            </StackPanel>
+            <Button x:Name="BtnSaveService"
+                Click="BtnSave_Click"
+                Style="{StaticResource mainBtn}"
+                Content="Сохранить"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

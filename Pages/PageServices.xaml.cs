@@ -1,4 +1,5 @@
 ﻿using BeautyShop_M.AppDataFile;
+using BeautyShop_M.AppDataFile.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,11 @@ namespace BeautyShop_M.Pages
             var HistoryServices = Connectdb.conObj.Service.ToList();
             ListService.ItemsSource = HistoryServices;
             ListService.ItemsSource = Connectdb.conObj.Service.Where(x => x.Title.StartsWith(TxtSearchService.Text) || x.Description.StartsWith(TxtSearchService.Text)).ToList();
+        }
+
+        private void btnAddService_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.framemain.Navigate(new PageAddService());
         }
     }
 }

@@ -119,10 +119,17 @@
     <Compile Include="AppDataFile\Tag.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageAddService.xaml.cs">
+      <DependentUpon>PageAddService.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageSaleHistory.xaml.cs">
       <DependentUpon>PageSaleHistory.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\PageAddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageAddService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,7 +9,7 @@
       Title="PageServices">
 
     <Grid>
-        <ScrollViewer>
+        <ScrollViewer Margin="0,0,0,45">
             <StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBox Name="TxtSearchService"
@@ -59,14 +59,14 @@
                                             <TextBlock Text=" рублей"
                                                    Style="{StaticResource prdctTxtb}"/>
                                         </StackPanel>
-                                        <!--<StackPanel Orientation="Horizontal"
+                                        <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Left">
-                                        <Button Name="BtnEdit"
+                                            <Button Name="BtnEditService"
                                                 Style="{StaticResource mainBtn}"
-                                                Click="BtnEdit_Click"
+                                                Click="BtnEditService_Click"
                                                 Content="Редактировать">
-                                        </Button>
-                                    </StackPanel>-->
+                                            </Button>
+                                        </StackPanel>
                                     </StackPanel>
                                 </ListBoxItem>
                             </DataTemplate>
@@ -75,5 +75,11 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
+        <StackPanel VerticalAlignment="Bottom"
+                    Height="45">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnAddService" Content="Добавить Услугу" Style="{StaticResource mainBtn}" Width="700" Click="btnAddService_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
