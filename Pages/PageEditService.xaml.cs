@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeautyShop_M.AppDataFile;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,11 @@ namespace BeautyShop_M.Pages
     {
         bool logicRb = false;
 
-        public PageEditService()
+        public PageEditService(Service service)
         {
             InitializeComponent();
+
+            ServiceObj.Id = service.ID;
         }
     }
 }

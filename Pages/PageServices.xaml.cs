@@ -44,5 +44,10 @@ namespace BeautyShop_M.Pages
         {
             FrameObj.framemain.Navigate(new PageAddService());
         }
+
+        private void BtnEditService_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
