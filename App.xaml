@@ -47,6 +47,12 @@
             <Setter Property="FontFamily" Value="Tahoma"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
+        
+        <Style TargetType="Label" x:Key="prdctLbl">
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        
         <Style TargetType="Image" x:Key="ImgSource">
             <Setter Property="Width" Value="100"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>

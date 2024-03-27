@@ -24,7 +24,7 @@ namespace BeautyShop_M.AppDataFile.Pages
         public PageEditNew(Product product)
         {
             InitializeComponent();
-            
+
             CmbxOwner.SelectedIndex = (int)product.ManufacturerID - 1;
             CmbxOwner.SelectedValue = "ID";
             CmbxOwner.DisplayMemberPath = "Name";
@@ -55,7 +55,8 @@ namespace BeautyShop_M.AppDataFile.Pages
             try
             {
                 IEnumerable<Product> products = Connectdb.conObj.Product.Where(x => x.ID == ProductObj.Id).AsEnumerable().
-                    Select(x =>{
+                    Select(x =>
+                    {
                         x.Title = TxtTitle.Text;
                         x.Cost = Convert.ToDecimal(TxtCost.Text);
 
@@ -81,13 +82,14 @@ namespace BeautyShop_M.AppDataFile.Pages
                         if (RbActive.IsChecked == true)
                         {
                             x.IsActive = true;
-                        }else if (RbNotActive.IsChecked == true)
+                        }
+                        else if (RbNotActive.IsChecked == true)
                         {
                             x.IsActive = false;
                         }
 
                         //x.ManufacturerID = (int)CmbxOwner.SelectedValue;
-                        x.ManufacturerID = ((Manufacturer)CmbxOwner.SelectedItem).ID; 
+                        x.ManufacturerID = ((Manufacturer)CmbxOwner.SelectedItem).ID;
                         return x;
                     });
 
@@ -98,11 +100,11 @@ namespace BeautyShop_M.AppDataFile.Pages
 
                 Connectdb.conObj.SaveChanges();
                 MessageBox.Show("Данные успешно изменены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+            }
             catch (Exception er)
             {
                 MessageBox.Show(er.Message.ToString());
             }
-}
+        }
     }
 }

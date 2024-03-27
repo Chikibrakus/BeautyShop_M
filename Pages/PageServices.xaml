@@ -52,6 +52,12 @@
                                                Style="{StaticResource prdctTxtb}"
                                                Padding="200,0,0,0">
                                         </TextBlock>
+                                        <Label
+                                               Content="{Binding IsActive}"
+                                               x:Name="TxtIsActive"
+                                               Style="{StaticResource prdctLbl}"
+                                               Padding="200,0,0,0">
+                                        </Label>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Cost}"
                                                    Style="{StaticResource prdctTxtb}"
@@ -60,11 +66,12 @@
                                                    Style="{StaticResource prdctTxtb}"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal"
-                                                HorizontalAlignment="Left">
+                                                HorizontalAlignment="Center">
                                             <Button Name="BtnEditService"
                                                 Style="{StaticResource mainBtn}"
                                                 Click="BtnEditService_Click"
-                                                Content="Редактировать">
+                                                Content="Редактировать"
+                                                Width="590">
                                             </Button>
                                         </StackPanel>
                                     </StackPanel>
