@@ -52,12 +52,10 @@
                                                Style="{StaticResource prdctTxtb}"
                                                Padding="200,0,0,0">
                                         </TextBlock>
-                                        <Label
-                                               Content="{Binding IsActive}"
-                                               x:Name="TxtIsActive"
-                                               Style="{StaticResource prdctLbl}"
+                                        <TextBlock Name="TxtStatus"
+                                               Style="{StaticResource prdctTxtb}"
                                                Padding="200,0,0,0">
-                                        </Label>
+                                        </TextBlock>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Cost}"
                                                    Style="{StaticResource prdctTxtb}"
