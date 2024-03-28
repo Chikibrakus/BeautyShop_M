@@ -43,14 +43,14 @@ namespace BeautyShop_M.Pages
             // Присваиваем значение IsActive элементу TxtIsActive
             foreach (var service in services)
             {
-                if (service.IsActive == true) 
-                {
-                    TxtStatus.Content = "Активен";
-                }
-                else
-                {
-                    TxtIsActive.Content = "Не активен";
-                }
+                    if (service.IsActive == true)
+                    {
+                        TxtStatus.Text = "Активен";
+                    }
+                    else
+                    {
+                        TxtStatus.Text = "Не активен";
+                    }              
             }
         }
 

@@ -13,10 +13,10 @@ namespace BeautyShop_M.AppDataFile
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BeutyShop_MEntities4 : DbContext
+    public partial class BeutyShop_MEntities5 : DbContext
     {
-        public BeutyShop_MEntities4()
-            : base("name=BeutyShop_MEntities4")
+        public BeutyShop_MEntities5()
+            : base("name=BeutyShop_MEntities5")
         {
         }
     
