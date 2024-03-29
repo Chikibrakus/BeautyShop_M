@@ -1,5 +1,4 @@
 ﻿using BeautyShop_M.AppDataFile;
-using BeautyShop_M.AppDataFile.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,6 @@ namespace BeautyShop_M.Pages
     /// </summary>
     public partial class PageServices : Page
     {
-        
         public PageServices()
         {
             InitializeComponent();
@@ -36,22 +34,9 @@ namespace BeautyShop_M.Pages
 
         public void UpdateData(object sender, object e)
         {
-            var services = Connectdb.conObj.Service.ToList();        
+            var services = Connectdb.conObj.Service.ToList();
             ListService.ItemsSource = services;
             ListService.ItemsSource = Connectdb.conObj.Service.Where(x => x.Title.StartsWith(TxtSearchService.Text) || x.Description.StartsWith(TxtSearchService.Text)).ToList();
-
-            // Присваиваем значение IsActive элементу TxtIsActive
-            foreach (var service in services)
-            {
-                    if (service.IsActive == true)
-                    {
-                        TxtStatus.Text = "Активен";
-                    }
-                    else
-                    {
-                        TxtStatus.Text = "Не активен";
-                    }              
-            }
         }
 
         private void btnAddService_Click(object sender, RoutedEventArgs e)
