@@ -84,15 +84,14 @@
             <DataGrid Name="gridLitProduct"
                   IsReadOnly="True"
                   AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Binding="{Binding Title}" Header="Название продукции"/>
-                <DataGridTextColumn Width="*" Binding="{Binding Cost}" Header="Цена"/>
-                <DataGridTextColumn Width="*" Binding="{Binding Description}" Header="Описание"/>
-                <DataGridTextColumn Width="*" Binding="{Binding IsActive}" Header="В наличии"/>
-                <DataGridTextColumn Width="*" Binding="{Binding ManufacturerID}" Header="Компания"/>
-            </DataGrid.Columns>
-        </DataGrid>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Binding="{Binding Title}" Header="Название продукции"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Cost}" Header="Цена"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Description}" Header="Описание"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding IsActive}" Header="В наличии"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding ManufacturerID}" Header="Компания"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
-        
     </Grid>
 </Page>

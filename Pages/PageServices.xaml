@@ -54,8 +54,7 @@
                                         </TextBlock>
                                         <TextBlock Name="TxtActive"
                                                    Style="{StaticResource prdctTxtb}"
-                                                   Padding="200,0,0,0"
-                                                   Text="{Binding IsActive}">
+                                                   Padding="200,0,0,0">
                                         </TextBlock>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Cost}"

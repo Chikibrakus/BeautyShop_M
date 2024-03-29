@@ -23,7 +23,7 @@
             </Button>
             <Button x:Name="btnFaq" Width="150" Height="30"
                     FontSize="17" Foreground="White" Background="#FFFF4A60"
-                    Margin="5 0 0 0" FontFamily="Tahoma">FAQ
+                    Margin="5 0 0 0" FontFamily="Tahoma" Click="btnFaq_Click">FAQ
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
