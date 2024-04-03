@@ -1,0 +1,24 @@
+﻿<Page x:Class="BeautyShop_M.Pages.PageDeleteService"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BeautyShop_M.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageDeleteService">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+                <Label HorizontalAlignment="Center" Content="Вы уверены что хотите удалить?" Style="{StaticResource mainLbl}" Width="410" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="5" VerticalContentAlignment="Center"/>
+                <Label Name="TitleService" HorizontalAlignment="Center" Content="" Style="{StaticResource mainLbl}" Width="410" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="5" FontSize="12" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="BtnDeleteYes" Content="Да" Style="{StaticResource mainBtn}" Click="BtnDeleteYes_Click"/>
+                <Button Name="BtnDeleteNo" Content="Нет" Style="{StaticResource mainBtn}" Click="BtnDeleteNo_Click"/>
+            </StackPanel>
+        </StackPanel>    
+    </Grid>
+</Page>

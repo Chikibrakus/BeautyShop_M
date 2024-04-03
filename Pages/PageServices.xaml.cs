@@ -48,5 +48,10 @@ namespace BeautyShop_M.Pages
         {
             FrameObj.framemain.Navigate(new PageEditService((sender as Button).DataContext as Service));
         }
+
+        private void BtnDeleteService_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.framemain.Navigate(new PageDeleteService((sender as Button).DataContext as Service));
+        }
     }
 }

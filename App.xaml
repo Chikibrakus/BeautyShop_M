@@ -35,6 +35,14 @@
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="35"/>
         </Style>
+        <Style TargetType="Label" x:Key="mainLbl">
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="35"/>
+        </Style>
         <Style TargetType="ComboBox" x:Key="mainCmbx">
             <Setter Property="FontFamily" Value="Tahoma"/>
             <Setter Property="FontSize" Value="17"/>

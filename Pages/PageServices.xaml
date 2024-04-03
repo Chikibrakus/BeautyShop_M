@@ -52,10 +52,6 @@
                                                Style="{StaticResource prdctTxtb}"
                                                Padding="200,0,0,0">
                                         </TextBlock>
-                                        <TextBlock Name="TxtActive"
-                                                   Style="{StaticResource prdctTxtb}"
-                                                   Padding="200,0,0,0">
-                                        </TextBlock>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Cost}"
                                                    Style="{StaticResource prdctTxtb}"
@@ -69,6 +65,15 @@
                                                 Style="{StaticResource mainBtn}"
                                                 Click="BtnEditService_Click"
                                                 Content="Редактировать"
+                                                Width="590">
+                                            </Button>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center">
+                                            <Button Name="BtnDeleteService"
+                                                Style="{StaticResource mainBtn}"
+                                                Click="BtnDeleteService_Click"
+                                                Content="Удалить"
                                                 Width="590">
                                             </Button>
                                         </StackPanel>

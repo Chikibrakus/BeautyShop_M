@@ -140,6 +140,9 @@
     <Compile Include="Pages\PageAddService.xaml.cs">
       <DependentUpon>PageAddService.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageDeleteService.xaml.cs">
+      <DependentUpon>PageDeleteService.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageEditService.xaml.cs">
       <DependentUpon>PageEditService.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageAddService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageDeleteService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
