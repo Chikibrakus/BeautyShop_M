@@ -378,6 +378,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BAZA.mdf</DependentUpon>
     </Content>
+    <Resource Include="Services\ЧисткаИУходУшей.jpg" />
+    <Resource Include="Services\МаникюрИПедикюр.jpg" />
+    <Resource Include="Services\РелаксационныеПроцедурыДляТела.jpg" />
+    <Resource Include="Services\УкладкаДляОсобыхСобытий.jpg" />
+    <Resource Include="Services\КоррекцияИОкрашиваниеБровейИРесниц.jpg" />
+    <Resource Include="Services\РасслабляющийИОздоровительныйМассаж.jpg" />
+    <Resource Include="Services\ЧисткаИУходЗаКожейЛица.jpg" />
+    <Resource Include="Services\ПроцедурыДляУлучшения.jpg" />
+    <Resource Include="Services\УходЗаРуками.jpg" />
+    <Resource Include="Services\ДизайнНогтей.jpg" />
+    <Resource Include="Services\ПокупкаТовара.jpg" />
+    <Resource Include="Services\УходPаBолосами.jpg" />
+    <Resource Include="Services\ОкрашеваниеИПоддержание.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

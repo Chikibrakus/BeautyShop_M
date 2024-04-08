@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeautyShop_M"
         mc:Ignorable="d"
-        Title="Админ-панель Салон Красоты" Height="700" Width="900" WindowStartupLocation="CenterOwner">
+        Title="Админ-панель Салон Красоты" Height="700" Width="900" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid>
         
     <Grid.RowDefinitions>

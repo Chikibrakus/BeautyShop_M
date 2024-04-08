@@ -45,7 +45,8 @@
                                         </TextBlock>
                                         <Image Source="{Binding Text, ElementName=StringImage}"
                                            Style="{StaticResource ImgSource}"
-                                           Margin="250,5,0,5"/>
+                                           Margin="250,5,0,5" Stretch="Uniform"
+                                               Height="150" Width="150"/>
                                         <TextBlock
                                                Text="{Binding Title}"
                                                Name="TxtNameService"
