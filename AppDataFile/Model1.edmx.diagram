@@ -4,31 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="de9b35a77bbd4fbea15ade5f05bb6323" Name="Diagram1">
-        <EntityTypeShape EntityType="BeutyShop_MModel.AttachedProduct" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.Client" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.ClientService" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.DocumentByService" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.Gender" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.Manufacturer" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.ProductSale" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.Service" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.ServicePhoto" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeutyShop_MModel.Tag" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_AttachedProduct_Product1" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_Client_Gender" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_ClientService_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_ClientService_Service" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_DocumentByService_ClientService" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_ProductSale_ClientService" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_Product_Manufacturer" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_ProductPhoto_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_ProductSale_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.FK_ServicePhoto_Service" ManuallyRouted="false" />
-        <AssociationConnector Association="BeutyShop_MModel.TagOfClient" ManuallyRouted="false" />
+      <Diagram DiagramId="8233abf4d7d6439eba8923ccf3191cb0" Name="Diagram1">
+        <EntityTypeShape EntityType="BASEModel.AttachedProduct" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.Client" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.ClientService" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.DocumentByService" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.Gender" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.Manufacturer" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.ProductSale" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.Service" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.ServicePhoto" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASEModel.Tag" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="BASEModel.FK_AttachedProduct_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_ClientService_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_ClientService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_DocumentByService_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_ProductSale_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_ProductPhoto_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_ProductSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.FK_ServicePhoto_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="BASEModel.TagOfClient" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
