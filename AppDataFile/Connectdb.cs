@@ -8,6 +8,6 @@ namespace BeautyShop_M.AppDataFile
 {
     internal class Connectdb
     {
-        public static BASEEntities1 conObj;
+        public static BeutyShop_MEntities7 conObj;
     }
 }
