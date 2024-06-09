@@ -55,7 +55,8 @@ namespace BeautyShop_M.Pages
                     DurationInSeconds = Convert.ToInt32(TxtDurationInSec.Text),
                     Description = TxtDescription.Text,
                     MainImagePath = TxtImage.Text,
-                    IsActive = LogicRb
+                    IsActive = LogicRb,
+                    Discount = Convert.ToInt32(TxtDiscount.Text)
                 };
 
                 Connectdb.conObj.Service.Add(service);

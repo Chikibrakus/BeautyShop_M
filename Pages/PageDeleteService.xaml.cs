@@ -42,13 +42,13 @@ namespace BeautyShop_M.Pages
                 {
                     Connectdb.conObj.Service.Remove(entityToDelete);
                     Connectdb.conObj.SaveChanges();
-                    MessageBox.Show("Данные удалены");
+                    MessageBox.Show("Данные удалены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     FrameObj.framemain.GoBack();
                 }
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка", exception.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Произошла непредвиденная ошибка", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

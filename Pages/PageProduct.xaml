@@ -75,7 +75,7 @@
                 </ListBox>
             </StackPanel>
         </ScrollViewer>
-        <StackPanel VerticalAlignment="Bottom"
+        <!--<StackPanel VerticalAlignment="Bottom"
                     Height="150">
             <StackPanel Orientation="Horizontal">
                 <RadioButton Name="RbUp" Content="По возврастанию" IsMouseCapturedChanged="RbUp_IsEnabledChanged" Margin="2 0 10 0"/>
@@ -92,6 +92,6 @@
                     <DataGridTextColumn Width="*" Binding="{Binding ManufacturerID}" Header="Компания"/>
                 </DataGrid.Columns>
             </DataGrid>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>

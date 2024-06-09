@@ -13,10 +13,10 @@ namespace BeautyShop_M.AppDataFile
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BeautyShop_MIIEntities : DbContext
+    public partial class BeautyShop_MEntities : DbContext
     {
-        public BeautyShop_MIIEntities()
-            : base("name=BeautyShop_MIIEntities")
+        public BeautyShop_MEntities()
+            : base("name=BeautyShop_MEntities")
         {
         }
     
@@ -36,7 +36,6 @@ namespace BeautyShop_M.AppDataFile
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace BeautyShop_M.AppDataFile.Pages
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
-            gridLitProduct.ItemsSource = Connectdb.conObj.Product.ToList();
+            //gridLitProduct.ItemsSource = Connectdb.conObj.Product.ToList();
             timer.Interval = TimeSpan.FromSeconds(2);
             timer.Tick += UpdateData;
             timer.Start();
@@ -51,12 +51,12 @@ namespace BeautyShop_M.AppDataFile.Pages
 
         private void RbUp_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            gridLitProduct.ItemsSource = Connectdb.conObj.Product.OrderBy(x => x.Title).ToList();
+            //gridLitProduct.ItemsSource = Connectdb.conObj.Product.OrderBy(x => x.Title).ToList();
         }
 
         private void RbDown_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            gridLitProduct.ItemsSource = Connectdb.conObj.Product.OrderByDescending(x => x.Title).ToList();
+            //gridLitProduct.ItemsSource = Connectdb.conObj.Product.OrderByDescending(x => x.Title).ToList();
         }
     }
 }
