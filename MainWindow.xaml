@@ -19,18 +19,13 @@
                     Click="btnBack_Click"
                     Width="150" Height="30" FontSize="17"
                     Foreground="White" Background="#FFFF4460"
-                    Margin="500 0 0 0" FontFamily="Tahoma">Назад
-            </Button>
-            <Button x:Name="btnFaq" Width="150" Height="30"
-                    FontSize="17" Foreground="White" Background="#FFFF4A60"
-                    Margin="5 0 0 0" FontFamily="Tahoma" Click="btnFaq_Click">FAQ
+                    Margin="650 0 0 0" FontFamily="Tahoma">Назад
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
             <Image Source=".//Resources/beauty_logo.png"
                    Width="490"
                    Opacity=".1">
-                
             </Image>
         </StackPanel>
         <Frame x:Name="FrmMain" Grid.Row="1" NavigationUIVisibility="Hidden"/>

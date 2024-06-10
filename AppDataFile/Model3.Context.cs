@@ -13,10 +13,10 @@ namespace BeautyShop_M.AppDataFile
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BeautyShop_MEntities : DbContext
+    public partial class BeautyShop_MIIEntities1 : DbContext
     {
-        public BeautyShop_MEntities()
-            : base("name=BeautyShop_MEntities")
+        public BeautyShop_MIIEntities1()
+            : base("name=BeautyShop_MIIEntities1")
         {
         }
     
@@ -29,13 +29,16 @@ namespace BeautyShop_M.AppDataFile
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<ClientService> ClientService { get; set; }
         public virtual DbSet<DocumentByService> DocumentByService { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Manufacturer> Manufacturer { get; set; }
+        public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductPhoto> ProductPhoto { get; set; }
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }
 }

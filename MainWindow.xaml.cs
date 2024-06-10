@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BeautyShop_M.Pages;
 
 namespace BeautyShop_M
 {
@@ -25,28 +26,39 @@ namespace BeautyShop_M
         public MainWindow()
         {
             InitializeComponent();
-            Connectdb.conObj = new BeautyShop_MIIEntities();
+            Connectdb.conObj = new BeautyShop_MIIEntities1();
             FrameObj.framemain = FrmMain;
 
-            FrmMain.Navigate(new PageMain());
-
+            //FrmMain.Navigate(new PageMain());
+            FrmMain.Navigate(new PageAuthorization());
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                FrameObj.framemain.GoBack();
+
+                if (FrmMain.Content is PageMain)
+                {
+                    MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите выйти?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        FrameObj.framemain.GoBack();
+                    }
+                    else
+                    {
+                    }
+                }
+                else 
+                {
+                    FrameObj.framemain.GoBack();
+
+                }
             }
             catch (InvalidOperationException)
             {
-                MessageBox.Show("Вы на главной странице!", "Уведомление", MessageBoxButton.OK);
-            }
-        }
-
-        private void btnFaq_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show($"{"Клиенты"} отвечает за функицонал просмотра и управления клинтами. \n{"Товары"} отвечает за функицонал просмотра и управления товраами. \n{"Услуги"} отвечает за функицонал просмотра и управления услугами. \n{"Добавить товар"} отвечает за функицонал добавления товара. \n{"Сотрудники"} отвечает за функицонал просмотра и управления сотрудниками \n{"Компания"} показывает подробную информацию об организации");
+                MessageBox.Show("Вы на первой странице!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }        
         }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище BeautyShop_MModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище BeautyShop_MIIModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AttachedProduct">
           <Key>
             <PropertyRef Name="MainProductID" />
@@ -46,12 +46,30 @@
           <Property Name="ClientServiceID" Type="int" />
           <Property Name="DocumentPath" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="25" />
+          <Property Name="Password" Type="nvarchar" MaxLength="25" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="RegistrationDate" Type="date" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="11" />
+          <Property Name="GenderCode" Type="nchar" MaxLength="1" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Post" Type="int" />
+        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="Code" />
           </Key>
           <Property Name="Code" Type="nchar" MaxLength="1" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Manufacturer">
           <Key>
@@ -60,6 +78,13 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="StartDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -111,6 +136,16 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="ServiceID" Type="int" />
           <Property Name="PhotoPath" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -185,6 +220,30 @@
             </Principal>
             <Dependent Role="DocumentByService">
               <PropertyRef Name="ClientServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Post" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -272,18 +331,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище BeautyShop_MModelContainer">
+        <EntityContainer Name="Хранилище BeautyShop_MIIModel1Container">
           <EntitySet Name="AttachedProduct" EntityType="Self.AttachedProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientService" EntityType="Self.ClientService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DocumentByService" EntityType="Self.DocumentByService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductPhoto" EntityType="Self.ProductPhoto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductSale" EntityType="Self.ProductSale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServicePhoto" EntityType="Self.ServicePhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TagOfClient" EntityType="Self.TagOfClient" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AttachedProduct_Product1" Association="Self.FK_AttachedProduct_Product1">
@@ -305,6 +367,14 @@
           <AssociationSet Name="FK_DocumentByService_ClientService" Association="Self.FK_DocumentByService_ClientService">
             <End Role="ClientService" EntitySet="ClientService" />
             <End Role="DocumentByService" EntitySet="DocumentByService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="Self.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
@@ -339,7 +409,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BeautyShop_MModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BeautyShop_MIIModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AttachedProduct">
           <Key>
             <PropertyRef Name="MainProductID" />
@@ -390,13 +460,34 @@
           <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ClientService" Relationship="Self.FK_DocumentByService_ClientService" FromRole="DocumentByService" ToRole="ClientService" />
         </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCode" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="PhotoPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="Int32" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
+          <NavigationProperty Name="Post1" Relationship="Self.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
+        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="Code" />
           </Key>
           <Property Name="Code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Gender" FromRole="Gender" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Manufacturer">
           <Key>
@@ -406,6 +497,14 @@
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Product_Manufacturer" FromRole="Manufacturer" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -467,6 +566,16 @@
           <Property Name="ServiceID" Type="Int32" />
           <Property Name="PhotoPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Service" Relationship="Self.FK_ServicePhoto_Service" FromRole="ServicePhoto" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -549,6 +658,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Employee_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_Manufacturer">
           <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -601,18 +734,21 @@
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="BeautyShop_MEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BeautyShop_MIIEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AttachedProduct" EntityType="Self.AttachedProduct" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="ClientService" EntityType="Self.ClientService" />
           <EntitySet Name="DocumentByService" EntityType="Self.DocumentByService" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="ProductPhoto" EntityType="Self.ProductPhoto" />
           <EntitySet Name="ProductSale" EntityType="Self.ProductSale" />
           <EntitySet Name="Service" EntityType="Self.Service" />
           <EntitySet Name="ServicePhoto" EntityType="Self.ServicePhoto" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tag" EntityType="Self.Tag" />
           <AssociationSet Name="FK_AttachedProduct_Product1" Association="Self.FK_AttachedProduct_Product1">
             <End Role="Product" EntitySet="Product" />
@@ -637,6 +773,14 @@
           <AssociationSet Name="FK_ProductSale_ClientService" Association="Self.FK_ProductSale_ClientService">
             <End Role="ClientService" EntitySet="ClientService" />
             <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="Self.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
@@ -664,9 +808,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BeautyShop_MModelContainer" CdmEntityContainer="BeautyShop_MEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BeautyShop_MIIModel1Container" CdmEntityContainer="BeautyShop_MIIEntities1">
           <EntitySetMapping Name="AttachedProduct">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.AttachedProduct">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.AttachedProduct">
               <MappingFragment StoreEntitySet="AttachedProduct">
                 <ScalarProperty Name="MainProductID" ColumnName="MainProductID" />
                 <ScalarProperty Name="AttachedProductID" ColumnName="AttachedProductID" />
@@ -674,7 +818,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.Client">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -690,7 +834,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClientService">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.ClientService">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.ClientService">
               <MappingFragment StoreEntitySet="ClientService">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
@@ -701,7 +845,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DocumentByService">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.DocumentByService">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.DocumentByService">
               <MappingFragment StoreEntitySet="DocumentByService">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ClientServiceID" ColumnName="ClientServiceID" />
@@ -709,8 +853,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.Gender">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Gender">
               <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -718,7 +881,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Manufacturer">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.Manufacturer">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Manufacturer">
               <MappingFragment StoreEntitySet="Manufacturer">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -726,8 +889,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.Product">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -740,7 +911,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductPhoto">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.ProductPhoto">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.ProductPhoto">
               <MappingFragment StoreEntitySet="ProductPhoto">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -749,7 +920,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductSale">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.ProductSale">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.ProductSale">
               <MappingFragment StoreEntitySet="ProductSale">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
@@ -760,7 +931,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Service">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.Service">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Service">
               <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -774,7 +945,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ServicePhoto">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.ServicePhoto">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.ServicePhoto">
               <MappingFragment StoreEntitySet="ServicePhoto">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
@@ -782,8 +953,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Tag">
-            <EntityTypeMapping TypeName="BeautyShop_MModel.Tag">
+            <EntityTypeMapping TypeName="BeautyShop_MIIModel1.Tag">
               <MappingFragment StoreEntitySet="Tag">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -791,7 +973,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="TagOfClient" TypeName="BeautyShop_MModel.TagOfClient" StoreEntitySet="TagOfClient">
+          <AssociationSetMapping Name="TagOfClient" TypeName="BeautyShop_MIIModel1.TagOfClient" StoreEntitySet="TagOfClient">
             <EndProperty Name="Client">
               <ScalarProperty Name="ID" ColumnName="ClientID" />
             </EndProperty>

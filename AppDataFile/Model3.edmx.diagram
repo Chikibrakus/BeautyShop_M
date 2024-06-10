@@ -4,30 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3e0b68fa1b52441fb0c16aa0bd42a64d" Name="Diagram1">
-        <EntityTypeShape EntityType="BeautyShop_MModel.AttachedProduct" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.Client" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.ClientService" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.DocumentByService" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.Gender" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.Manufacturer" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.ProductSale" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.Service" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.ServicePhoto" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="BeautyShop_MModel.Tag" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_AttachedProduct_Product1" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_Client_Gender" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_ClientService_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_ClientService_Service" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_DocumentByService_ClientService" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_ProductSale_ClientService" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_Product_Manufacturer" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_ProductPhoto_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_ProductSale_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.FK_ServicePhoto_Service" ManuallyRouted="false" />
-        <AssociationConnector Association="BeautyShop_MModel.TagOfClient" ManuallyRouted="false" />
+      <Diagram DiagramId="879d4e46b1bc45cdb74db5ed5b49b88a" Name="Diagram1">
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.AttachedProduct" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Client" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.ClientService" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.DocumentByService" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Employee" Width="1.5" PointX="8.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Gender" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Manufacturer" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Post" Width="1.5" PointX="6.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.ProductSale" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Service" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.ServicePhoto" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautyShop_MIIModel1.Tag" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_AttachedProduct_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_ClientService_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_ClientService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_DocumentByService_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_ProductSale_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_Employee_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_Employee_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_ProductPhoto_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_ProductSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.FK_ServicePhoto_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautyShop_MIIModel1.TagOfClient" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
